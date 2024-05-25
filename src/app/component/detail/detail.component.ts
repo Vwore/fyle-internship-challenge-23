@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class DetailComponent {
   username= "";
-
+  userDetail: any;
+  repoDetail: any;
   constructor(private route: ActivatedRoute, private apiService: ApiService
   ) { 
     
@@ -20,7 +21,14 @@ export class DetailComponent {
     this.route.params.subscribe(params => {
       this.username = params['user'];
       console.log(this.username)
-      this.apiService.getUser(this.username).subscribe(console.log);
+      this.apiService.getUser(this.username).subscribe(data=> {
+        this.userDetail=data
+        this.apiService.getRepo(this.userDetail.repos_url).subscribe(data=> {
+          this.repoDetail=data;
+          console.log(this.repoDetail)
+        })
+      });
+      
 
       // Fetch details based on itemId
     });}
