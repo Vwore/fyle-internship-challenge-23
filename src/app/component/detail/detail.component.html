@@ -1,3 +1,14 @@
 <div class="flex mt-10 justify-center">
-    <div class="rounded-full"><img class="rounded-full" src={{userDetail.avatar_url}} alt="Medium size image" class="relative z-20">
-</div></div>
+    <div class="flex flex-col items-center">
+        <div class="rounded-full"><img class="rounded-full w-13 h-13" src={{userDetail.avatar_url}}
+                alt="Medium size image"></div>
+            <div>{{userDetail.name}}</div>
+            <div>{{userDetail.bio}}</div>
+        
+    </div>
+</div>
+<div class="flex flex-wrap justify-center ">
+<div class="max-w-sm w-full m-5 bg-white rounded-lg shadow-md p-6" *ngFor="let data of repoDetail; ">
+    <app-repo-card [data]="data"></app-repo-card>
+</div>
+</div>

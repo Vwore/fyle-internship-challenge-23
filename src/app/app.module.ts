@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './component/detail/detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { RepoCardComponent } from './component/detail/repo-card/repo-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailComponent
+    DetailComponent,
+    RepoCardComponent
   ],
   imports: [
     BrowserModule,
