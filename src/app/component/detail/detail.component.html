@@ -12,3 +12,16 @@
     <app-repo-card [data]="data"></app-repo-card>
 </div>
 </div>
+
+<div class="flex justify-center mt-10">
+    <button (click)="prevPage()" [disabled]="currentPage === 1" class="px-4 py-2 mx-1 bg-gray-300 rounded">Previous</button>
+    <span class="px-4 py-2 mx-1">Page {{ currentPage }} of {{ lastPage }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === lastPage" class="px-4 py-2 mx-1 bg-gray-300 rounded">Next</button>
+</div>
+
+<div class="flex justify-center mt-5">
+    <label for="itemsPerPage">Items per page:</label>
+    <select id="itemsPerPage" [(ngModel)]="itemsPerPage" (change)="changeItemsPerPage($event)" class="ml-2 px-4 py-2 bg-white border rounded">
+        <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+    </select>
+</div>
